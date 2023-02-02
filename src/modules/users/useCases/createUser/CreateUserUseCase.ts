@@ -10,7 +10,12 @@ class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ email, name }: IRequest): User {
-    // Complete aqui
+    try {
+      return this.usersRepository.create({ email, name });
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
 }
 
