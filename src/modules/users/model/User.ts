@@ -5,9 +5,9 @@ class User {
     private name: string,
     private email: string,
     private created_at: Date,
+    private updated_at?: Date,
     private id: string = uuidV4(),
-    private admin: boolean = false,
-    private updated_at?: Date
+    private admin: boolean = false
   ) {}
 
   get getId(): string {
@@ -15,6 +15,10 @@ class User {
   }
 
   get getEmail(): string {
+    return this.email;
+  }
+
+  get getName(): string {
     return this.name;
   }
 
@@ -24,6 +28,18 @@ class User {
 
   set setAdmin(value: boolean) {
     this.admin = value;
+  }
+
+  get getCreatedAt(): Date {
+    return this.created_at;
+  }
+
+  get getUpdatedAt(): Date {
+    return this.updated_at;
+  }
+
+  set setUpdatedAt(value: Date) {
+    this.updated_at = value;
   }
 }
 
