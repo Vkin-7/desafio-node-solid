@@ -16,11 +16,9 @@ class ListAllUsersUseCase {
         return this.usersRepository.list();
       }
 
-      return [];
+      throw new Error("User non exists or user not is admin");
     } catch (error) {
-      console.error(error);
-
-      return null;
+      throw new Error(error);
     }
   }
 }

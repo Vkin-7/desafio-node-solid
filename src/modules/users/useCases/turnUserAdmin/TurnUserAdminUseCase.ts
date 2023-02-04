@@ -16,11 +16,9 @@ class TurnUserAdminUseCase {
         return this.usersRepository.turnAdmin(user);
       }
 
-      return null;
+      throw new Error("Cannot turn a non existing user as admin");
     } catch (error) {
-      console.error(error);
-
-      return null;
+      throw new Error(error);
     }
   }
 }

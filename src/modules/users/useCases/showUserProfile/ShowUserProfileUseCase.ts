@@ -12,11 +12,13 @@ class ShowUserProfileUseCase {
     try {
       const user = this.usersRepository.findById(user_id);
 
-      return user;
-    } catch (error) {
-      console.error(error);
+      if (user) {
+        return user;
+      }
 
-      return null;
+      throw new Error("Cannot show a non existing user");
+    } catch (error) {
+      throw new Error(error);
     }
   }
 }
