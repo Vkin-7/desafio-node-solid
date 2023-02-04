@@ -18,9 +18,9 @@ describe("TurnUserAdminUseCase", () => {
       email: "dogim@rocketseat.com",
     });
 
-    const updatedUser = turnUserAdminUseCase.execute({ user_id: user.id });
+    const updatedUser = turnUserAdminUseCase.execute({ user_id: user.getId });
 
-    expect(updatedUser.admin).toBe(true);
+    expect(updatedUser.getAdmin).toBe(true);
     expect(usersRepository.list()).toStrictEqual(
       expect.arrayContaining([updatedUser])
     );

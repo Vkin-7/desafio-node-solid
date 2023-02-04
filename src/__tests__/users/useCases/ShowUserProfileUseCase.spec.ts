@@ -18,7 +18,7 @@ describe("ShowUserProfileUseCase", () => {
       email: "danilo@rocketseat.com",
     });
 
-    const findUser = showUserProfileUseCase.execute({ user_id: user.id });
+    const findUser = showUserProfileUseCase.execute({ user_id: user.getId });
 
     expect(findUser).toMatchObject(user);
   });

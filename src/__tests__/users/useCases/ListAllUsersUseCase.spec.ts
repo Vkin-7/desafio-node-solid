@@ -24,7 +24,7 @@ describe("ListAllUsersUseCase", () => {
       email: "vinifraga@rocketseat.com",
     });
 
-    userId = user2.id;
+    userId = user2.getId;
 
     const user3 = usersRepository.create({
       name: "Joseph Oliveira",
@@ -33,7 +33,7 @@ describe("ListAllUsersUseCase", () => {
 
     usersRepository.turnAdmin(user1);
 
-    const users = listAllUsersUseCase.execute({ user_id: user1.id });
+    const users = listAllUsersUseCase.execute({ user_id: user1.getId });
 
     expect(users).toEqual(
       expect.arrayContaining([

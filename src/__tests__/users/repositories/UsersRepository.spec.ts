@@ -20,9 +20,8 @@ describe("UsersRepository", () => {
       email: "vinifraga@rocketseat.com",
       admin: false,
     });
-    expect(validate(user.id)).toBe(true);
-    expect(user.created_at).toBeInstanceOf(Date);
-    expect(user.updated_at).toBeInstanceOf(Date);
+    expect(validate(user.getId)).toBe(true);
+    expect(user.getCreatedAt).toBeInstanceOf(Date);
   });
 
   it("should be able to list all users", () => {
@@ -42,16 +41,15 @@ describe("UsersRepository", () => {
       email: "vinifraga@rocketseat.com",
     });
 
-    const findUser = usersRepository.findById(user.id);
+    const findUser = usersRepository.findById(user.getId);
 
     expect(findUser).toMatchObject({
-      name: user.name,
-      email: user.email,
+      name: user.getName,
+      email: user.getEmail,
       admin: false,
     });
-    expect(validate(findUser.id)).toBe(true);
-    expect(findUser.created_at).toBeInstanceOf(Date);
-    expect(findUser.updated_at).toBeInstanceOf(Date);
+    expect(validate(findUser.getId)).toBe(true);
+    expect(findUser.getCreatedAt).toBeInstanceOf(Date);
   });
 
   it("should be able to find user by e-mail address", () => {
@@ -60,16 +58,15 @@ describe("UsersRepository", () => {
       email: "vinifraga@rocketseat.com",
     });
 
-    const findUser = usersRepository.findByEmail(user.email);
+    const findUser = usersRepository.findByEmail(user.getEmail);
 
     expect(findUser).toMatchObject({
-      name: user.name,
-      email: user.email,
+      name: user.getName,
+      email: user.getEmail,
       admin: false,
     });
-    expect(validate(findUser.id)).toBe(true);
-    expect(findUser.created_at).toBeInstanceOf(Date);
-    expect(findUser.updated_at).toBeInstanceOf(Date);
+    expect(validate(findUser.getId)).toBe(true);
+    expect(findUser.getCreatedAt).toBeInstanceOf(Date);
   });
 
   it("should be able to turn an user as admin", () => {
@@ -81,12 +78,12 @@ describe("UsersRepository", () => {
     const admin = usersRepository.turnAdmin(user);
 
     expect(admin).toMatchObject({
-      name: user.name,
-      email: user.email,
+      name: user.getName,
+      email: user.getEmail,
       admin: true,
     });
-    expect(validate(admin.id)).toBe(true);
-    expect(admin.created_at).toBeInstanceOf(Date);
-    expect(admin.updated_at).toBeInstanceOf(Date);
+    expect(validate(admin.getId)).toBe(true);
+    expect(admin.getCreatedAt).toBeInstanceOf(Date);
+    expect(admin.getUpdatedAt).toBeInstanceOf(Date);
   });
 });
