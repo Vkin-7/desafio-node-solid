@@ -18,6 +18,10 @@ class User {
     return this.name;
   }
 
+  get getAdmin(): boolean {
+    return this.admin;
+  }
+
   set setAdmin(value: boolean) {
     this.admin = value;
   }
