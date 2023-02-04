@@ -41,6 +41,7 @@ class UsersRepository implements IUsersRepository {
 
     if (userIndex !== -1) {
       this.users[userIndex].setAdmin = true;
+      this.users[userIndex].setUpdatedAt = new Date();
 
       return receivedUser;
     }
